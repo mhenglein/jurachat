@@ -1,0 +1,27 @@
+{
+  "vectors": [
+    {
+      "id": 1,
+      "metadata": {
+        "title": "A-skattelåneloven",
+        "link": "https://danskelove.dk/a-skattel%C3%A5neloven",
+        "description": "Lov om rentefrie lån svarende til indberettet A-skat og arbejdsmarkedsbidrag i forbindelse med covid-19",
+        "section": "1",
+        "chunk": "A-skattelåneloven. Lov om rentefrie lån svarende til indberettet A-skat og arbejdsmarkedsbidrag i forbindelse med covid-19. null. § 1Virksomheder kan efter anmodning til told- og skatteforvaltningen som et rentefrit lån få udbetalt et beløb svarende til det beløb, der af virksomheden rettidigt er indberettet som indeholdt A-skat og arbejdsmarkedsbidrag for afregningsperioderne august og december 2020, hvis virksomheden i disse afregningsperioder var omfattet af opkrævningslovens § 2, stk. 5, jf. dog § 2. Lånet efter 1. pkt. udbetales via det cvr- eller SE-nummer, der skal anvendes ved afregningen, og kan ikke overstige det rettidigt indberettede tilsvar, som ligger til grund for lånet, efter eventuelle negative reguleringer.",
+        "text": "§ 1Virksomheder kan efter anmodning til told- og skatteforvaltningen som et rentefrit lån få udbetalt et beløb svarende til det beløb, der af virksomheden rettidigt er indberettet som indeholdt A-skat og arbejdsmarkedsbidrag for afregningsperioderne august og december 2020, hvis virksomheden i disse afregningsperioder var omfattet af opkrævningslovens § 2, stk. 5, jf. dog § 2. Lånet efter 1. pkt. udbetales via det cvr- eller SE-nummer, der skal anvendes ved afregningen, og kan ikke overstige det rettidigt indberettede tilsvar, som ligger til grund for lånet, efter eventuelle negative reguleringer."
+      },
+      "values": [
+        -0.020078173, -0.022150759, 0.022940932, -0.04101129, -0.0023510894, -0.02615344, -0.021697382, -0.012590958, -0.027539482, -0.004569404, 0.025039425,
+        0.024080854, -0.042021673, 0.015505531, -0.0066905655, 0.0068848706, 0.024508325, -0.030441102, 0.013419992, -0.0102916835, -0.03924959, 0.00019005449,
+        -0.023368403, 0.000054648255, -0.005288332, -0.01321921, 0.010149193, -0.027228594, 0.0061367964, 0.010479511, -0.0029582921, -0.014754219,
+        -0.028834848, -0.0062695714, -0.014430378, -0.018135125, 0.009585708, -0.0009901454, 0.023964271, -0.035233956, 0.020013405, 0.023174098, -0.012759355,
+        -0.0056996103, 0.013290456, -0.0028724743, 0.019184371, -0.030285658, -0.028264886, 0.021516029, 0.019003019, 0.035026696, -0.01415835, 0.012014519,
+        -0.010337021, 0.025104193, -0.010155669, 0.009177668, 0.00047969024, 0.007545507, 0.014417424, -0.01056371, -0.008361587, -0.008743721, -0.005382246,
+        0.0006638751, -0.015401902, 0.0017795091, -0.040726308, 0.01150285, 0.04950889, 0.023433171, 0.019223232, -0.0059878295, 0.006178896, -0.0035784487,
+        0.0006638751, 0.0058874385, -0.010265776, 0.018990066, 0.0102074845, -0.0031380241, -0.00488353, 0.002645785, 0.028679404, -0.016075492, -0.0063796774,
+        0.05298047, -0.010822783, 0.0010921555, 0.009261867, 0.0112373, 0.020984929, 0.009015747, -0.027306316, 0.02919755, -0.004650364, 0.03266913,
+        -0.0070208837, -0.058032397
+      ]
+    }
+  ]
+}

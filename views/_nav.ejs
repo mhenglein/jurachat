@@ -1,0 +1,44 @@
+<nav id="top" class="navbar navbar-expand navbar-transparent align-items-center">
+  <div class="container-fluid px-3 py-1 px-lg-5 align-items-center">
+    <div class="collapse navbar-collapse" id="toggler">
+      <ul class="navbar-nav me-auto mb-0">
+        <li class="nav-item dropdown ms-md-4 ms-2">
+          <a href="/" class="nav-link text-dark" role="button">✏️</a>
+        </li>
+
+        <li class="nav-item dropdown ms-md-4 ms-2">
+          <a href="/#features" class="nav-link text-dark" role="button">Features</a>
+        </li>
+
+        <li class="nav-item ms-md-4 ms-2">
+          <a href="/#priser" class="nav-link text-dark">Priser</a>
+        </li>
+        <% if (!user) { %>
+        <li class="nav-item ms-md-4 ms-2">
+          <a data-bs-toggle="modal" href="#signIn" class="nav-link text-dark">Log ind</a>
+        </li>
+        <% } else { %>
+
+        <li class="nav-item ms-md-4 ms-2">
+          <a href="/logud" class="nav-link text-dark">Log ud</a>
+        </li>
+        <% } %>
+      </ul>
+
+      <ul class="navbar-nav mb-2 mb-md-0">
+        <% if (user) { %> <% if (!user.isSubscribedKomma) { %>
+        <form action="/create-checkout-session" method="POST">
+          <input type="hidden" name="priceId" value="price_1MmP9iEE2hEizbkro1GimbDW" />
+          <button id="purchaseBtn" class="btn btn-jonquil pulse border border-dark brutalist-shadow-sm text-end">
+            Opgrader <span class="d-none d-lg-inline-block">til Pro</span>
+          </button>
+        </form>
+        <% } %> <% } else { %>
+        <button data-bs-toggle="modal" data-bs-target="#signUp" class="btn btn-jonquil pulse border px-4 border-dark brutalist-shadow-sm text-end">
+          Opgrader <span class="d-none d-lg-inline-block">til Pro</span>
+        </button>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>

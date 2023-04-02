@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="da">
+  <%- include('_head') %>
+  <body class="bg-light">
+    <main class="d-flex flex-nowrap">
+      <%- include('_sidebar') %>
+
+      <article class="min-vh-100 w-100">
+        <header>
+          <!-- Logo top -->
+          <p class="text-center pt-3">jura chat</p>
+
+          <!-- Initialize chat -->
+          <div id="initChat " class="d-none my-4 text-center d-flex align-content-center justify-content-center flex-wrap gap-2 px-4">
+            <button
+              class="d-inline-flex border border-1 border-dark align-content-center justify-content-center rounded-pill px-4 py-2 small brutalist-shadow-sm btn btn-mint smooth-transitions"
+              data-bs-toggle="modal"
+              data-bs-target="#aiSettings"
+            >
+              <i class="bi bi-person-circle"></i><span class="ms-1">Vælg persona</span>
+            </button>
+            <button
+              class="d-inline-flex align-content-center border border-2 border-dark justify-content-center rounded-pill px-4 py-2 small brutalist-shadow-sm btn btn-teal smooth-transitions"
+              data-bs-toggle="modal"
+              data-bs-target="#allTemplates"
+            >
+              <i class="bi bi-collection"></i><span class="ms-1">Skabelon</span>
+            </button>
+
+            <button
+              class="d-inline-flex align-content-center justify-content-center rounded-pill px-4 py-2 small border border-2 border-dark btn btn-sand smooth-transitions brutalist-shadow-sm"
+              data-bs-toggle="modal"
+              data-bs-target="#allLanguages"
+            >
+              <i class="bi bi-translate"></i> <span class="ms-1">Set language</span>
+            </button>
+          </div>
+        </header>
+
+        <section id="upload">
+          <div class="container mt-5">
+            <div class="row row-cols-3 mt-5" id="uploadRows"></div>
+          </div>
+        </section>
+        <section class="row col-lg-9 mx-auto">
+          <p class="text-center small mt-3" id="blurbText">
+            <!-- Stil spørgsmål til dine juridiske dokumenter.<br />
+            Træk dine filer ind (.docx, .doc) hvor som helst på skærmen for at uploade. -->
+          </p>
+        </section>
+
+        <section id="chatArea" class="container-fluid pb-5"></section>
+
+        <!-- Chat prompt box -->
+        <nav class="fixed-bottom smooth-transitions left-padding-lg pt-5">
+          <div class="d-flex flex-row flex-wrap justify-content-center align-items-center">
+            <!-- Send -->
+            <div id="bottom" class="position-relative pb-3">
+              <textarea
+                class="chat smooth-transitions border border-2 border-dark"
+                style="height: 90px"
+                id="chatMessage"
+                placeholder="Stil et spørgsmål"
+                enterkeyhint="send"
+                autocomplete="off"
+                spellcheck="false"
+              ></textarea>
+              <!-- <div class="transcribe-button" id="transcribeMe">
+            <i class="bi bi-mic text-blue fs-4"></i>
+          </div> -->
+
+              <div class="send-button" id="sendInput">
+                <i class="bi bi-arrow-up-circle-fill text-blue fs-3"></i>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </article>
+    </main>
+
+    <!-- <section id="answersContainer" class="d-none">
+      <div class="container my-5">
+        <div class="row">
+          <div class="col">
+            <h2 class="text-center">Dit svar</h2>
+            <div id="answersArea">
+              <p class="card-text placeholder-glow lh-sm w-75 mx-auto">
+                <span class="placeholder placeholder-sm col-12 rounded"></span>
+                <span class="placeholder placeholder-sm col-12 rounded"></span>
+                <span class="placeholder placeholder-sm col-12 rounded"></span>
+                <span class="placeholder placeholder-sm col-12 rounded"></span>
+                <span class="placeholder placeholder-sm col-12 rounded"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sourcesArea" class="d-none">
+      <div class="container">
+        <h2 class="text-center">Udvalgte passager fra dine kilder</h2>
+        <div class="row row-cols-1 g-4" id="addSourcesHere">
+          <p class="card-text placeholder-glow lh-sm w-75 mx-auto">
+            <span class="placeholder placeholder-sm col-12 rounded"></span>
+            <span class="placeholder placeholder-sm col-12 rounded"></span>
+            <span class="placeholder placeholder-sm col-12 rounded"></span>
+            <span class="placeholder placeholder-sm col-12 rounded"></span>
+            <span class="placeholder placeholder-sm col-12 rounded"></span>
+          </p>
+        </div>
+      </div>
+    </section> -->
+
+    <template id="userMessage">
+      <div class="row col-lg-6 mx-auto mb-3 p-3" userMessage></div>
+    </template>
+
+    <template id="assistantMessage">
+      <div class="row col-lg-6 mx-auto bg-secondary text-light mb-3 p-3" assistantMessage></div>
+    </template>
+
+    <template id="sourceTemplate">
+      <div class="col">
+        <div class="card rounded border-secondary p-4">
+          <div class="fw-bold" sourceName>Kildenavn 1</div>
+          <div class="mt-1 fw-bold tiny" sourceMetadata>Yderligere metadata</div>
+          <p class="fs-6" sourceText>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At neque, aliquam possimus quis fugit ducimus, repudiandae magni quo accusamus iusto
+            dolorem facilis ad culpa aspernatur magnam iure ratione dolore nemo.
+          </p>
+        </div>
+      </div>
+    </template>
+
+    <template id="answerTemplate">
+      <div class="col">
+        <p class="fs-6" answerText>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. At neque, aliquam possimus quis fugit ducimus, repudiandae magni quo accusamus iusto dolorem
+          facilis ad culpa aspernatur magnam iure ratione dolore nemo.
+        </p>
+      </div>
+    </template>
+
+    <template id="fileUpload">
+      <div class="col">
+        <div class="card shadow-sm h-100" style="min-height: 9rem">
+          <div class="card-body">
+            <div class="card-title text-center">
+              <i class="bi bi-file-earmark-word"></i> <code title>Handelsbetingelser</code>
+              <div spinner class="spinner-grow spinner-grow-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+            <p class="text-muted tiny" snippet>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi voluptatibus saepe laborum ea in iusto optio unde autem omnis ducimus aperiam ut
+              officia laudantium, ad fuga assumenda debitis officiis quidem.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <!-- Dropzone -->
+    <div class="file-dropzone d-none">
+      <img src="/images/corner.svg" style="left: 34px; top: 34px; position: absolute" />
+      <img src="/images/corner.svg" style="right: 34px; top: 34px; position: absolute; transform: rotate(90deg)" />
+      <img src="/images/corner.svg" style="left: 34px; bottom: 34px; position: absolute; transform: rotate(270deg)" />
+      <img src="/images/corner.svg" style="right: 34px; bottom: 34px; position: absolute; transform: rotate(180deg)" />
+      <h2 class="fw-medium display-1">Slip filen hvor som helst</h2>
+    </div>
+    <!-- Bootstrap 5 JS and dependencies -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/scripts.js"></script>
+    <script src="/chat.js"></script>
+  </body>
+</html>

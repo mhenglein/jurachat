@@ -1,0 +1,67 @@
+<div
+  class="d-flex offcanvas-lg offcanvas-start flex-column flex-shrink-0 p-3 p-3 pb-lg-3 pb-5 bg-dark text-light vh-100 sticky-top border-end border-light border-4"
+  id="sidebar"
+  style="width: 260px; z-index: 999999"
+>
+  <!-- NEW CHAT -->
+  <a href="/" class="btn btn-secondary border border-dark border-2 brutalist-shadow-xs" id="newChat"><i class="bi bi-chat-dots"></i> Ny dialog</a>
+
+  <!-- SEARCH CHATS -->
+  <!-- TODO -->
+
+  <!-- EKSISTERENDE CHATS -->
+  <% if (typeof chats !== "undefined") { %>
+  <!--  -->
+  <% for( let i = 0; i < chats.length; i++ ) { %> ... <% } %>
+  <!--  -->
+  <% } %>
+
+  <hr />
+  <ul class="nav nav-pills flex-column mb-3">
+    <li class="my-1">
+      <a id="faq" href="#" class="nav-link"><i class="bi bi-question-circle"></i> FAQ</a>
+    </li>
+
+    <li class="my-1">
+      <a id="account" href="#" class="nav-link"><i class="bi bi-gear"></i> Konto</a>
+    </li>
+  </ul>
+</div>
+
+<script>
+  const pathName = window.location.pathname;
+  const sidebar = document.getElementById("sidebar");
+
+  // On resize, hide the offcanvas sidebar
+  function adjustSidebar() {
+    // Adjust inline style
+    sidebar.style.visibility = "visible";
+
+    if (window.innerWidth <= 992) {
+      sidebar.classList.remove("sticky-top");
+      sidebar.classList.add("fixed-top");
+    } else {
+      sidebar.classList.add("sticky-top");
+      sidebar.classList.remove("fixed-top");
+    }
+  }
+
+  window.addEventListener("resize", adjustSidebar);
+  window.addEventListener("load", adjustSidebar);
+</script>
+
+<!-- Bottom menu -->
+<div class="position-absolute top-0 start-50 translate-middle-x d-flex d-lg-none justify-content-center" style="z-index: 999999">
+  <button
+    class="btn btn-light border-bottom border-start border-end border-dark border-2 rounded-0 rounded-bottom btn-sm"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#sidebar"
+    aria-controls="sidebar"
+    style="white-space: nowrap"
+  >
+    Vis menu
+  </button>
+</div>
+
+<!-- ! Scripts -->
+<!-- <script async src="/basic.js"></script> -->

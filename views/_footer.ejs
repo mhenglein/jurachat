@@ -1,0 +1,39 @@
+<footer class="p-lg-3 text-bg-pine border-top border-2 border-dark">
+  <div class="container p-4">
+    <div class="row row-cols-1">
+      <div class="col">
+        <h3>Kommaretter</h3>
+        <p>
+          Kommaretter er et specialværktøj udviklet af TextGuru, der automatisk og gratis sætter komma i din tekst. Vi bruger grammatisk komma, dvs. med
+          startkomma. Vil du gerne have 100x mere funktionalitet? Så besøg
+          <a class="text-light" href="https://textguru.ai/da">TextGuru</a>, og lær mere. TextGuru Pro-brugere har gratis adgang til Kommaretter.
+        </p>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 mt-3">
+      <!-- Praktiske -->
+      <div class="col">
+        <h4 class="h5">Konto</h4>
+        <ul class="flex-column list-unstyled">
+          <li class="nav-item mb-2">
+            <a href="/logud" class="nav-link p-0">Log ud <%= user && typeof user.email !== "undefined" ? "(" + user.email + ")" : "" %></a>
+          </li>
+          <li class="nav-item mb-2"><a data-bs-toggle="modal" href="#signIn" class="nav-link p-0">Log ind</a></li>
+        </ul>
+      </div>
+
+      <!-- Det med småt -->
+      <div class="col">
+        <h4 class="h5">Det med småt</h4>
+        <ul class="flex-column list-unstyled">
+          <li class="nav-item mb-2"><a href="#priser" class="nav-link p-0">Priser</a></li>
+
+          <li class="nav-item mb-2">
+            <a href="/privatlivspolitik" class="nav-link p-0">Cookie- og privatlivspolitik</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

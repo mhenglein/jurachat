@@ -1,0 +1,31 @@
+<% if (messages.success) { %>
+<div class="alert alert-blue smooth-transitions text-dark rounded-0 text-dark alert-dismissible fade show mb-0 border-bottom border-1 border-dark" role="alert">
+  <% for( let i = 0; i < messages.success.length; i++ ) { %> <%= messages.success[i].msg %>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <% } %>
+</div>
+
+<% } %> <% if (messages.info) { %>
+<div class="alert alert-moss smooth-transitions rounded-0 alert-dismissible fade show mb-0 border-bottom border-1 border-dark" role="alert">
+  <% for( let i = 0; i < messages.info.length; i++ ) { %> <%= messages.info[i].msg %>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <% } %>
+</div>
+<% } %> <% if (messages.error) { %>
+<div class="alert alert-coral smooth-transitions rounded-0 alert-dismissible fade show mb-0 border-bottom border-1 border-dark" role="alert">
+  <% for( let i = 0; i < messages.error.length; i++ ) { %> <%= messages.error[i].msg %>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <% } %>
+</div>
+<% } %> <% if (messages.success || messages.info || messages.error) { %>
+<script>
+  // Set timeout for 5 seconds, then close all alerts without jquery
+  setTimeout(function () {
+    let alerts = document.querySelectorAll(".alert");
+    for (let i = 0; i < alerts.length; i++) {
+      // Remove entirely
+      alerts[i].remove();
+    }
+  }, 5000);
+</script>
+<% } %>
