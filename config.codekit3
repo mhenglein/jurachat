@@ -221,6 +221,14 @@
       "oAP" : "\/public\/embeddings",
       "oF" : 0
     },
+    "\/firstEntry.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/public\/firstEntry-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
     "\/getFirstExample" : {
       "cB" : 0,
       "ft" : 8192,
@@ -258,6 +266,14 @@
       "ft" : 524288,
       "oA" : 1,
       "oAP" : "\/public\/package-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
+    "\/pinecone.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/public\/pinecone-min.json",
       "oF" : 0,
       "oO" : 1,
       "oS" : 1
