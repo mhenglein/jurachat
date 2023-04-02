@@ -38,9 +38,9 @@
     "\/app\/favicon\/android-chrome-192x192.png" : {
       "ft" : 32768,
       "iS" : 17037,
-      "oA" : 0,
-      "oAP" : "\/public\/favicon\/android-chrome-192x192.png",
-      "oF" : 0,
+      "oA" : 2,
+      "oAP" : "\/public\/android-chrome-192x192.png",
+      "oF" : 3,
       "oIPL" : 0,
       "opt" : 1,
       "oT" : 1,
@@ -51,9 +51,9 @@
     "\/app\/favicon\/android-chrome-512x512.png" : {
       "ft" : 32768,
       "iS" : 53926,
-      "oA" : 0,
-      "oAP" : "\/public\/favicon\/android-chrome-512x512.png",
-      "oF" : 0,
+      "oA" : 2,
+      "oAP" : "\/public\/android-chrome-512x512.png",
+      "oF" : 3,
       "oIPL" : 0,
       "opt" : 1,
       "oT" : 1,
@@ -64,9 +64,9 @@
     "\/app\/favicon\/apple-touch-icon.png" : {
       "ft" : 32768,
       "iS" : 15204,
-      "oA" : 0,
-      "oAP" : "\/public\/favicon\/apple-touch-icon.png",
-      "oF" : 0,
+      "oA" : 2,
+      "oAP" : "\/public\/apple-touch-icon.png",
+      "oF" : 3,
       "oIPL" : 0,
       "opt" : 1,
       "oT" : 1,
@@ -77,9 +77,9 @@
     "\/app\/favicon\/favicon-16x16.png" : {
       "ft" : 32768,
       "iS" : 779,
-      "oA" : 0,
-      "oAP" : "\/public\/favicon\/favicon-16x16.png",
-      "oF" : 0,
+      "oA" : 2,
+      "oAP" : "\/public\/favicon-16x16.png",
+      "oF" : 3,
       "oIPL" : 0,
       "opt" : 1,
       "oT" : 1,
@@ -90,9 +90,9 @@
     "\/app\/favicon\/favicon-32x32.png" : {
       "ft" : 32768,
       "iS" : 1909,
-      "oA" : 0,
-      "oAP" : "\/public\/favicon\/favicon-32x32.png",
-      "oF" : 0,
+      "oA" : 2,
+      "oAP" : "\/public\/favicon-32x32.png",
+      "oF" : 3,
       "oIPL" : 0,
       "opt" : 1,
       "oT" : 1,
@@ -104,17 +104,17 @@
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/public\/favicon\/favicon.ico",
-      "oF" : 0
+      "oA" : 2,
+      "oAP" : "\/public\/favicon.ico",
+      "oF" : 3
     },
     "\/app\/favicon\/site.webmanifest" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/public\/favicon\/site.webmanifest",
-      "oF" : 0
+      "oA" : 2,
+      "oAP" : "\/public\/site.webmanifest",
+      "oF" : 3
     },
     "\/app\/images\/corner.svg" : {
       "ft" : 2097152,
@@ -197,8 +197,8 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 0,
-      "oAP" : "\/public\/styles\/styles.css",
-      "oF" : 0,
+      "oAP" : "\/public\/styles.css",
+      "oF" : 2,
       "oS" : 0,
       "pg" : 0,
       "sct" : 0
@@ -367,7 +367,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/app\/favicon\/apple-touch-icon.png",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 702160170.77929604
+    "lastBuiltDate" : 702161782.50288296
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
@@ -1657,7 +1657,7 @@
     },
     "esLintSourceType" : 0,
     "externalServerAddress" : "http:\/\/localhost:8888",
-    "gitIgnoreBuildFolder" : 1,
+    "gitIgnoreBuildFolder" : 0,
     "hideConfigFile" : 0,
     "jsCheckerReservedNamesString" : "",
     "languageDefaultsCOFFEE" : {
