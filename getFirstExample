@@ -1,0 +1,33 @@
+const fs = require("fs");
+const JSONStream = require("JSONStream");
+const stream = require("stream");
+
+// Create a read stream for the JSON file
+const readStream = fs.createReadStream("pinecone.json");
+
+// Create a JSONStream parser to extract the first element in the array
+const jsonParser = JSONStream.parse("*");
+
+// Create a transform stream to handle the first entry
+const handleFirstEntry = new stream.Transform({
+  objectMode: true,
+  transform: function (chunk, _, done) {
+    this.push(JSON.stringify(chunk));
+    this.end();
+    done();
+  },
+});
+
+// Create a write stream for the output file
+const writeStream = fs.createWriteStream("firstEntry.json");
+
+readStream
+  .pipe(jsonParser)
+  .pipe(handleFirstEntry)
+  .pipe(writeStream)
+  .on("finish", () => {
+    console.log("First entry saved to firstEntry.json");
+  })
+  .on("error", (err) => {
+    console.error("Error:", err);
+  });

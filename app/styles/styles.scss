@@ -1,0 +1,210 @@
+@import "_colors";
+.file-dropzone {
+  background: rgba(102, 74, 0, 0.8);
+  bottom: 0;
+  color: #fff;
+  left: 0;
+  padding-top: 45vh;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 6000;
+}
+
+html,
+body,
+h1,
+p {
+  font-family: "Merriweather", serif !important;
+}
+
+.serif {
+  font-family: "Merriweather", serif !important;
+}
+
+body {
+  font-size: 1.2rem;
+  font-weight: 300;
+  overscroll-behavior: none;
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.btn {
+  transition: all 200ms ease;
+}
+
+.btn.brutalist-shadow:hover,
+.btn.brutalist-shadow-sm:hover,
+.btn.brutalist-shadow-xs:hover {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+
+.brutalist-shadow {
+  box-shadow: 4px 4px 0 0 #000;
+}
+
+.brutalist-shadow-sm {
+  box-shadow: 3px 3px 0 0 #000;
+}
+
+.brutalist-shadow-xs {
+  box-shadow: 1px 1px 0 0 #000;
+}
+
+.main-section {
+  position: static;
+  display: block;
+  margin-bottom: 0px;
+  // padding-bottom: 175px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-position: 0px 0px;
+  background-size: cover;
+}
+
+.btn.disabled {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+
+.btn.active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+del {
+  text-decoration: none;
+  background: unset;
+  background: #f66;
+  border-bottom: 1px solid #f66;
+}
+
+ins {
+  text-decoration: none;
+  background: unset;
+  background: #6f6; // #e6ffea;
+  border-bottom: 1px solid #6f6;
+}
+
+.small {
+  font-size: 15px !important;
+  // Even smaller on smaller screens
+  @media (max-width: 767px) {
+    font-size: 11px !important;
+  }
+}
+
+.tiny {
+  font-size: 0.6rem !important;
+}
+
+.smooth-transitions {
+  transition: all 0.3s ease;
+}
+
+.pulse {
+  /* other styles for the button */
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.nav-link {
+  // smaller text on smaller screens
+  @media (max-width: 767px) {
+    font-size: 1rem;
+  }
+}
+
+#purchaseBtn {
+  // smaller text on smaller screens
+  @media (max-width: 767px) {
+    font-size: 0.9rem;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.05);
+  }
+  40% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// td smaller text on smaller screens
+@media (max-width: 767px) {
+  td,
+  th {
+    font-size: 0.8rem;
+  }
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: text-bottom;
+  background-color: #fafbfc;
+  border: solid 1px #c6cbd1;
+  border-bottom-color: #959da5;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #959da5;
+}
+
+[contenteditable][data-placeholder]:empty::before {
+  content: attr(data-placeholder);
+  color: #ccc;
+}
+
+.left-padding-lg {
+  @media (min-width: 1024px) {
+    padding-left: 17rem;
+  }
+}
+
+// Chat
+textarea.chat {
+  width: 50vw;
+  // 100 vw on small screens like mobile
+  @media screen and (max-width: 768px) {
+    width: 75vw;
+  }
+
+  font-size: 16px;
+  outline: none !important;
+  padding: 9px 43px 9px 13px;
+  margin: 0px 0px 0px 0px;
+  border-radius: 7px;
+  border-radius: 17px;
+  resize: none;
+  display: block;
+  font-weight: 400;
+}
+
+.send-button {
+  position: absolute;
+  bottom: 12px;
+  right: 7px;
+  height: 27px;
+  width: 27px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  top: 5px;
+}
