@@ -158,6 +158,17 @@
       "sC" : 0,
       "tS" : 0
     },
+    "\/app\/scripts\/search.js" : {
+      "bF" : 4,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/search.js",
+      "oF" : 0,
+      "sC" : 0,
+      "tS" : 0
+    },
     "\/app\/styles\/_colors.scss" : {
       "aP" : 0,
       "bl" : 0,

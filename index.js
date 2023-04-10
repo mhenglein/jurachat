@@ -38,12 +38,14 @@ const Sentry = require("@sentry/node");
 const Tracing = require("@sentry/tracing");
 
 Sentry.init({
-  dsn: "https://b4b9094da68a43b08b62345b3bd98819@o4504394414817280.ingest.sentry.io/4504394419798016",
+  dsn: "https://c37232622efa42ddb028cf61a8472c35@o4504394414817280.ingest.sentry.io/4504989746724864",
   integrations: [
     // enable HTTP calls tracing
     new Sentry.Integrations.Http({ tracing: true }),
     // enable Express.js middleware tracing
     new Tracing.Integrations.Express({ app }),
+    // Automatically instrument Node.js libraries and frameworks
+    ...Sentry.autoDiscoverNodePerformanceMonitoringIntegrations(),
   ],
 
   // Set tracesSampleRate to 1.0 to capture 100%
@@ -185,12 +187,15 @@ const upload = multer({ storage: storage });
 // const checker = require("./controllers/checker.js");
 
 app.get("/", (req, res) => {
-  return res.render("index");
+  return res.render("search");
 });
 
 const main = require("./controllers/main.js");
 const chat = require("./controllers/chat.js");
+const search = require("./controllers/search.js");
 
+app.get("/search", search.getSearch);
+app.post("/search", search.postSearch);
 app.post("/upload", upload.single("file"), main.handleUpload);
 app.post("/chat", chat.postChat);
 

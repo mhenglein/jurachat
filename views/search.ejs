@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="da">
+  <%- include('_head') %>
+  <body class="bg-light">
+    <main class="d-flex flex-nowrap">
+      <article class="w-100">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 mx-auto">
+              <div class="position-relative d-flex flex-column align-items-center justify-content-center vh-100" style="padding-bottom: 15rem">
+                <div class="mb-3 fs-1">🦉</div>
+                <div class="position-relative w-100">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="position-absolute top-50 translate-middle-y rounded-circle opacity-50 d-none d-sm-block"
+                    style="left: 3%"
+                  >
+                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+                    <path d="M21 21l-6 -6"></path>
+                  </svg>
+                  <input
+                    class="form-control form-control-lg rounded-pill border border-secondary px-5 py-3 fs-6"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Stil et spørgsmål"
+                    value=""
+                    name="text"
+                    id="searchQuery"
+                  />
+                  <button
+                    id="sendButton"
+                    class="btn position-absolute top-50 translate-middle-y rounded-circle bg-primary p-1 d-none d-sm-block text-white"
+                    style="left: 93%"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12l14 0"></path>
+                      <path d="M13 18l6 -6"></path>
+                      <path d="M13 6l6 6"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- Dropzone -->
+    <div class="file-dropzone d-none">
+      <img src="/images/corner.svg" style="left: 34px; top: 34px; position: absolute" />
+      <img src="/images/corner.svg" style="right: 34px; top: 34px; position: absolute; transform: rotate(90deg)" />
+      <img src="/images/corner.svg" style="left: 34px; bottom: 34px; position: absolute; transform: rotate(270deg)" />
+      <img src="/images/corner.svg" style="right: 34px; bottom: 34px; position: absolute; transform: rotate(180deg)" />
+      <h2 class="fw-medium display-1">Slip filen hvor som helst</h2>
+    </div>
+    <!-- Bootstrap 5 JS and dependencies -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/search.js"></script>
+  </body>
+</html>
