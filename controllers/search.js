@@ -187,21 +187,21 @@ function handleErrors(error) {
 function fixText(text) {
   if (!text) return;
   // Ã¦
-  text = text.replaceAll(/Ã¦/g, "æ");
+  text = text.replace(/Ã¦/g, "æ");
   // Ã¸
-  text = text.replaceAll(/Ã¸/g, "ø");
+  text = text.replace(/Ã¸/g, "ø");
   // Ã¥
-  text = text.replaceAll(/Ã¥/g, "å");
+  text = text.replace(/Ã¥/g, "å");
   // Ã„
-  text = text.replaceAll(/Ã„/g, "Æ");
+  text = text.replace(/Ã„/g, "Æ");
   // Ã˜
-  text = text.replaceAll(/Ã˜/g, "Ø");
+  text = text.replace(/Ã˜/g, "Ø");
   // Ã…
-  text = text.replaceAll(/Ã…/g, "Å");
+  text = text.replace(/Ã…/g, "Å");
   // Ã©
-  text = text.replaceAll(/Ã©/g, "é");
+  text = text.replace(/Ã©/g, "é");
   //Â§
-  text = text.replaceAll("Â§", "");
+  text = text.replace(/Â§/g, "");
 
   return text;
 }
