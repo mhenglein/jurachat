@@ -172,6 +172,8 @@ function handleErrors(error) {
 // Fix all text
 function fixText(text) {
   if (!text) return;
+  // Ã
+  text = text.replace(/Ã/g, "Ø");
   // Ã¦
   text = text.replace(/Ã¦/g, "æ");
   // Ã¸
