@@ -34,6 +34,9 @@ module.exports.getSearch = async (req, res) => {
 
   // Get all message
   let searchQuery = req.query.q;
+  console.log("Search query: ", searchQuery);
+
+  const searchQueryWords = searchQuery.split(" ");
 
   // TODO Strip out stopord
   const vector = await getEmbedding(searchQuery);
@@ -42,7 +45,7 @@ module.exports.getSearch = async (req, res) => {
     includeValues: false,
     includeMetadata: true,
     vector,
-    topK: 10,
+    topK: 20,
   };
 
   const pineconeResponse = await fetch(url, {
@@ -56,17 +59,55 @@ module.exports.getSearch = async (req, res) => {
   const json = await pineconeResponse.json();
   console.log(json);
 
-  // Fix all the metadata in matches using fixText on title, text
-  json.matches.forEach((match) => {
-    match.metadata.title = fixText(match.metadata.title);
-    match.metadata.text = fixText(match.metadata.text);
-  });
-
-  if (!json.results) {
+  if (!json.matches || json.matches.length === 0) {
     return res.status(500).json({ error: "No results" });
   }
 
-  return res.render("searchResults", { results: json.matches });
+  // Fix all the metadata in matches using fixText on title, text
+  const matches = json.matches
+    .map((match) => {
+      match.metadata.title = fixText(match.metadata.title);
+      match.metadata.description = fixText(match.metadata.description);
+      match.metadata.text = fixText(match.metadata.text);
+
+      const section = match.metadata.section;
+      if (section) {
+        // Remove the section from the beginning of the string, e.g.
+        // 66cMuseumsloven -> Museumsloven for section === 66c
+
+        let sectionNumber = section.trim();
+        // if sectionNumber contains a letter, add a space between the digits and the letter
+        // e.g. 66c -> 66 c
+        sectionNumber = sectionNumber.replace(/(\d+)([a-z])/i, "$1 $2");
+
+        console.log("Section: ", sectionNumber);
+        const regex = new RegExp(`^\\s*${sectionNumber}`);
+        console.log("Regex: ", regex);
+        match.metadata.text = match.metadata.text.replace(regex, "");
+        console.log("Text: ", match.metadata.text.slice(0, 50)); // This should no longer contain the section
+      }
+
+      // Add linebreaks before every part that starts with Stk. # where # is a number
+      match.metadata.text = match.metadata.text.replace(/Stk\.\s*\d+/g, "<br><br> $&");
+
+      // For every searchQueryWords, add a <mark> tag around it
+      searchQueryWords.forEach((word) => {
+        // This should be case-insensitive and bounded by word boundaries
+        // (remember that æøå are not bounded by \b)
+        const regex = new RegExp(`(?<!\\w)(${word})(?!\\w)`, "gi");
+        match.metadata.text = match.metadata.text.replace(regex, `<mark>$1</mark>`);
+
+        if (match.metadata.description) {
+          match.metadata.description = match.metadata.description.replace(regex, `<mark>$1</mark>`);
+        }
+      });
+
+      return match;
+    })
+    .filter((match) => match.metadata.text !== "(Ophævet)") // Remove all entries where .text is = (Ophævet)
+    .slice(0, 10); // Limit json.matches to 10
+
+  return res.render("searchResults", { results: matches });
 };
 
 module.exports.postSearch = async (req, res) => {

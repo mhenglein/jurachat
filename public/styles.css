@@ -22,6 +22,10 @@ p {
   font-family: "Merriweather", serif !important;
 }
 
+strong {
+  font-weight: 900;
+}
+
 body {
   font-size: 1.2rem;
   font-weight: 300;
