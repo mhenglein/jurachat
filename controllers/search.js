@@ -37,7 +37,7 @@ module.exports.getSearch = async (req, res) => {
   console.log("Search query: ", searchQuery);
 
   let searchQueryWords = searchQuery.split(" ");
-  const stopord = fs.readFileSync("stopwords.txt", "utf8").split("\n");
+  const stopord = fs.readFileSync("./data/stopord.txt", "utf8").split("\n");
   console.log(stopord.length);
   searchQueryWords = searchQueryWords.filter((word) => !stopord.includes(word));
 
