@@ -36,9 +36,13 @@ module.exports.getSearch = async (req, res) => {
   let searchQuery = req.query.q;
   console.log("Search query: ", searchQuery);
 
-  const searchQueryWords = searchQuery.split(" ");
+  let searchQueryWords = searchQuery.split(" ");
+  const stopord = fs.readFileSync("stopwords.txt", "utf8").split("\n");
+  console.log(stopord.length);
+  searchQueryWords = searchQueryWords.filter((word) => !stopord.includes(word));
 
   // TODO Strip out stopord
+
   const vector = await getEmbedding(searchQuery);
 
   const query = {
