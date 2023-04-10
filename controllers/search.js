@@ -34,14 +34,9 @@ module.exports.getSearch = async (req, res) => {
 
   // Get all message
   let searchQuery = req.query.q;
-  console.log("Search query: ", searchQuery);
-
   let searchQueryWords = searchQuery.split(" ");
   const stopord = fs.readFileSync("./data/stopord.txt", "utf8").split("\n");
-  console.log(stopord.length);
   searchQueryWords = searchQueryWords.filter((word) => !stopord.includes(word));
-
-  // TODO Strip out stopord
 
   const vector = await getEmbedding(searchQuery);
 
@@ -58,10 +53,7 @@ module.exports.getSearch = async (req, res) => {
     body: JSON.stringify(query),
   });
 
-  console.log(pineconeResponse);
-
   const json = await pineconeResponse.json();
-  console.log(json);
 
   if (!json.matches || json.matches.length === 0) {
     return res.status(500).json({ error: "No results" });
@@ -83,12 +75,8 @@ module.exports.getSearch = async (req, res) => {
         // if sectionNumber contains a letter, add a space between the digits and the letter
         // e.g. 66c -> 66 c
         sectionNumber = sectionNumber.replace(/(\d+)([a-z])/i, "$1 $2");
-
-        console.log("Section: ", sectionNumber);
         const regex = new RegExp(`^\\s*${sectionNumber}`);
-        console.log("Regex: ", regex);
         match.metadata.text = match.metadata.text.replace(regex, "");
-        console.log("Text: ", match.metadata.text.slice(0, 50)); // This should no longer contain the section
       }
 
       // Add linebreaks before every part that starts with Stk. # where # is a number
@@ -140,10 +128,7 @@ module.exports.postSearch = async (req, res) => {
     body: JSON.stringify(query),
   });
 
-  console.log(pineconeResponse);
-
   const json = await pineconeResponse.json();
-  console.log(json);
 
   if (!json.results) {
     return res.status(500).json({ error: "No results" });
@@ -153,14 +138,11 @@ module.exports.postSearch = async (req, res) => {
 };
 
 async function getEmbedding(query) {
-  console.log("Query: ", query);
   try {
     const response = await openai.createEmbedding({
       model: "text-embedding-ada-002",
       input: query,
     });
-
-    console.log(response.status);
 
     return response.data.data[0].embedding;
   } catch (error) {
