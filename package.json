@@ -18,6 +18,10 @@
     ],
     "ext": "js, json, ejs, css"
   },
+  "engines": {
+    "node": "18.15.0",
+    "npm": "9.5.0"
+  },
   "dependencies": {
     "@node-rs/bcrypt": "^1.6.1",
     "@pinecone-database/pinecone": "^0.0.12",
